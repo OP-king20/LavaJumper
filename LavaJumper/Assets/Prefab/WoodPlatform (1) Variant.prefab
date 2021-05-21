@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7163276016844353527}
   - component: {fileID: 7163276016844353528}
   - component: {fileID: 7163276016844353529}
-  - component: {fileID: 7163276016844353530}
-  - component: {fileID: 7163276016844353531}
   m_Layer: 8
   m_Name: WoodPlatform (1) Variant
   m_TagString: Ground
@@ -111,35 +109,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 35.875397, y: 2.469876}
   m_EdgeRadius: 0
---- !u!58 &7163276016844353530
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7163276016844353532}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.7430823, y: -0.05252725}
-  serializedVersion: 2
-  m_Radius: 0.45678788
---- !u!58 &7163276016844353531
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7163276016844353532}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.8793058, y: -0.055032372}
-  serializedVersion: 2
-  m_Radius: 0.46667856
