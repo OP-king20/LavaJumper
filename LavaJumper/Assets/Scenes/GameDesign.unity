@@ -2467,6 +2467,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7163276016844353529, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
+      propertyPath: m_Size.x
+      value: 216.60492
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163276016844353529, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
+      propertyPath: m_Offset.x
+      value: 13.238705
+      objectReference: {fileID: 0}
     - target: {fileID: 7163276016844353532, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
       propertyPath: m_Name
       value: CavePlatform
