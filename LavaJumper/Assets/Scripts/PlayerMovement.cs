@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpForce = 5f;
 
     public Rigidbody2D rb;
-
+    public Animator animator;
     
     bool isGrounded = false;
     public Transform isGroundedChecker;
@@ -23,15 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-        Jump();
-        CheckIfGrounded();
-        
     }
 
     private void Move()
@@ -50,6 +41,18 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(velocity, rb.velocity.y);
 
         
+    }
+
+    // Update is called once per frame
+
+    void Update()
+    {
+        Move();
+        Jump();
+        CheckIfGrounded();
+
+        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
+
     }
 
     private void Jump()
