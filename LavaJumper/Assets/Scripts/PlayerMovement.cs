@@ -31,23 +31,22 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         CheckIfGrounded();
-        
+        Debug.Log(isWall);
     }
 
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
-        if (inputX == -1)
+        if ((inputX == -1) && (isWall == true))
         {
             player.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
 
-        else if (inputX == 1)
+        else if ((inputX == -1) && (isWall == true))
         {
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-       
-            float velocity = inputX * speed;
+        float velocity = inputX * speed;
         rb.velocity = new Vector2(velocity, rb.velocity.y);
 
         
