@@ -292,10 +292,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
 =======
   m_RootOrder: 8
 >>>>>>> parent of 4ff50d5 (Grouped sprites)
+=======
+  m_RootOrder: 4
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
   m_RootOrder: 4
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
@@ -500,7 +504,11 @@ Transform:
   - {fileID: 993387491}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 7
+=======
+  m_RootOrder: 5
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
   m_RootOrder: 5
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
@@ -1609,6 +1617,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &497477021
 =======
 --- !u!1 &521837627
@@ -1670,6 +1679,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.0240967}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
 --- !u!1 &521837627
@@ -2517,6 +2528,7 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &769171807
 =======
   m_GameObject: {fileID: 803886218}
@@ -2588,6 +2600,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.0240967}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
 --- !u!4 &771828083 stripped
@@ -2825,6 +2839,7 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
 =======
   m_GameObject: {fileID: 457221477}
@@ -2854,6 +2869,8 @@ Transform:
   - {fileID: 521837628}
   - {fileID: 1787899026}
   m_Father: {fileID: 0}
+=======
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
   m_RootOrder: 6
@@ -3372,6 +3389,7 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
 =======
   m_RootOrder: 7
@@ -3385,6 +3403,9 @@ Transform:
 =======
   m_RootOrder: 5
 >>>>>>> parent of 4ff50d5 (Grouped sprites)
+=======
+  m_RootOrder: 7
+>>>>>>> parent of e63b4d6 (NoStuckOnSides)
 =======
   m_RootOrder: 7
 >>>>>>> parent of e63b4d6 (NoStuckOnSides)
