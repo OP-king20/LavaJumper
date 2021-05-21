@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    bool isWall;
+    
     bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
@@ -31,18 +31,18 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         CheckIfGrounded();
-        Debug.Log(isWall);
+        
     }
 
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
-        if ((inputX == -1) && (isWall == true))
+        if (inputX == -1)
         {
             player.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
 
-        else if ((inputX == -1) && (isWall == true))
+        else if (inputX == 1)
         {
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
@@ -61,16 +61,6 @@ public class PlayerMovement : MonoBehaviour
             //float inputY = Input.GetAxisRaw("Vertical");
             //float jump = inputY * jumpForce;
             //rb.velocity = new Vector2(rb.velocity.x, jump);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("Collision!");
-            isWall = true;
-            Debug.Log(isWall);
         }
     }
 
