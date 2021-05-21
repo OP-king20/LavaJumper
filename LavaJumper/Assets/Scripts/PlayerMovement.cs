@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float checkGroundRadius;
     public LayerMask groundLayer;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,19 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
+        if (inputX == -1)
+        {
+            player.transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+
+        else if (inputX == 1)
+        {
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
         float velocity = inputX * speed;
         rb.velocity = new Vector2(velocity, rb.velocity.y);
+
+        
     }
 
     private void Jump()
