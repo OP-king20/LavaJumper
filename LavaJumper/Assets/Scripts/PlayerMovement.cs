@@ -61,8 +61,6 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         CheckIfGrounded();
 
-        //animator.SetFloat("Speed", Mathf.Abs("Horizontal"));
-
     }
 
     private void Jump()
