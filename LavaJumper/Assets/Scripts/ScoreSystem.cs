@@ -6,29 +6,30 @@ using UnityEngine.UI;
 public class ScoreSystem : MonoBehaviour
 {
     //Be sure to assign this a value in the designer.
-    public Text ScoreText;
-
-    private float timer;
-    private float score;
+    [SerializeField]
+    int Coins;
 
     private void Start()
     {
-        //Reset the timer to 0.
-        timer = 0;
+        Coins = 0;
+    
     }
 
     void Update()
     {
 
-        timer += Time.deltaTime;
+   
+    }
 
-        score = Mathf.RoundToInt(timer);
-
-            //We only need to update the text if the score changed.
-            ScoreText.text = score.ToString();
-            Debug.Log(score);
-
-        
+    private void OnTriggerEnter2D(Collider2D coincol)
+    {
+        if (coincol.gameObject.tag == "Player")
+        {
+            
+            Coins = Coins +1;
+            Debug.Log(Coins);
+            Destroy(gameObject);
+        }
     }
 
 }
