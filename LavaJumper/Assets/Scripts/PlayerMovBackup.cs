@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileMovement : MonoBehaviour
+public class PlayerMovBackup : MonoBehaviour
 {
     [SerializeField]
     float speed = 5f;
@@ -19,53 +19,47 @@ public class MobileMovement : MonoBehaviour
 
     public GameObject player;
 
-
-    private float ScreenWidth;
-
     // Start is called before the first frame update
     void Start()
     {
-        ScreenWidth = Screen.width;
         rb = GetComponent<Rigidbody2D>();
-        
     }
     // Update is called once per frame
 
     void Update()
     {
-        
+        Move();
         Jump();
         CheckIfGrounded();
 
         //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
 
     }
-   
-
-    public void Move()
-    
+    private void Move()
     {
-        int i = 0;
-
-        while (i < Input.touchCount)
+        float inputX = Input.GetAxisRaw("Horizontal");
+        if (inputX == -1)
         {
-            if (Input.GetTouch(i).position.x > ScreenWidth/2)
-            {
-                float velocity = -1 * speed;
-                rb.velocity = new Vector2(velocity, rb.velocity.y);
-            }
-
-        
+            player.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
 
-      
+        else if (inputX == 1)
+        {
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        float velocity = inputX * speed;
+        rb.velocity = new Vector2(velocity, rb.velocity.y);
+
+
     }
+
+
 
     private void Jump()
     {
         //Must be reworked
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-        {   
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //float inputY = Input.GetAxisRaw("Vertical");
             //float jump = inputY * jumpForce;
