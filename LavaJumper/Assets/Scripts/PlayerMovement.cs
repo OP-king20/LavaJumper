@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     float jumpForce = 5f;
 
     public Rigidbody2D rb;
-    public Animator animator;
     
     bool isGrounded = false;
     public Transform isGroundedChecker;
@@ -28,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
+
         if (inputX == -1)
         {
             player.transform.rotation = Quaternion.Euler(0, -180, 0);
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         CheckIfGrounded();
 
-        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
+        //animator.SetFloat("Speed", Mathf.Abs("Horizontal"));
 
     }
 
