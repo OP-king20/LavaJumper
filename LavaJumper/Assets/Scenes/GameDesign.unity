@@ -13967,11 +13967,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &1769451769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5140743509947884421, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-  m_PrefabInstance: {fileID: 2104361415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782902163
 GameObject:
   m_ObjectHideFlags: 0
@@ -15065,26 +15060,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-    - target: {fileID: 5874450150863871577, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874450150863871577, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-      propertyPath: jumpTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874450150863871577, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-      propertyPath: groundPos
-      value: 
-      objectReference: {fileID: 1769451769}
-    - target: {fileID: 5874450150863871577, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874450150863871577, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
-      propertyPath: checkRadius
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
 --- !u!1 &2120364094
