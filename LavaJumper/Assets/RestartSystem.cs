@@ -13,7 +13,7 @@ public class RestartSystem : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collision2D restart)
+    private void OnTriggerEnter2D(Collider2D restart)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
