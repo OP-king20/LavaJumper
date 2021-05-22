@@ -24,7 +24,17 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    // Update is called once per frame
 
+    void Update()
+    {
+        Move();
+        Jump();
+        CheckIfGrounded();
+
+        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
+
+    }
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
@@ -43,17 +53,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-
-    void Update()
-    {
-        Move();
-        Jump();
-        CheckIfGrounded();
-
-        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
-
-    }
+ 
 
     private void Jump()
     {
