@@ -5,31 +5,43 @@ using UnityEngine.UI;
 
 public class ScoreSystem : MonoBehaviour
 {
-    //Be sure to assign this a value in the designer.
     [SerializeField]
-    int Coins;
+    int score = 0;
 
-    private void Start()
+    [SerializeField]
+    Vector3 _lastPosition;
+
+    // Use this for initialization
+    void Start()
     {
-        Coins = 0;
-    
+        _lastPosition = this.transform.position;
     }
 
-    void Update()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-
-   
-    }
-
-    private void OnTriggerEnter2D(Collider2D coincol)
-    {
-        if (coincol.gameObject.tag == "Player")
+        if (this.transform.position.y > _lastPosition.y)
         {
-            
-            Coins = Coins +1;
-            Debug.Log(Coins);
-            Destroy(gameObject);
+            score++;
+            print(score);
+            _lastPosition = this.transform.position;
         }
     }
+
+    //void OnGUI()
+    //{
+    //    GUILayout.Label("Score : " + score);
+    //}
+
+    //private void OnTriggerEnter2D(Collider2D coincol)
+    //{
+    //    if (coincol.gameObject.tag == "Player")
+    //    {
+
+    //        Coins = Coins +1;
+    //        Debug.Log(Coins);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 }
