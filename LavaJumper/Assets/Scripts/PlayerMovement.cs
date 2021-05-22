@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     float jumpForce = 5f;
 
     public Rigidbody2D rb;
-
-    bool isWall;
+    public Animator animator;
+    
     bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
@@ -23,15 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-        Jump();
-        CheckIfGrounded();
-        
     }
 
     private void Move()
@@ -46,11 +37,22 @@ public class PlayerMovement : MonoBehaviour
         {
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-       
-            float velocity = inputX * speed;
+        float velocity = inputX * speed;
         rb.velocity = new Vector2(velocity, rb.velocity.y);
 
         
+    }
+
+    // Update is called once per frame
+
+    void Update()
+    {
+        Move();
+        Jump();
+        CheckIfGrounded();
+
+        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
+
     }
 
     private void Jump()
@@ -62,16 +64,6 @@ public class PlayerMovement : MonoBehaviour
             //float inputY = Input.GetAxisRaw("Vertical");
             //float jump = inputY * jumpForce;
             //rb.velocity = new Vector2(rb.velocity.x, jump);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("Collision!");
-            isWall = true;
-            Debug.Log(isWall);
         }
     }
 
