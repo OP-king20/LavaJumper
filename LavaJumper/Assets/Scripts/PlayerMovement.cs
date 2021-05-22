@@ -10,8 +10,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpForce = 5f;
 
     public Rigidbody2D rb;
-    public Animator animator;
-
+    
     bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
@@ -19,59 +18,49 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
 
-
-    private float ScreenWidth;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        ScreenWidth = Screen.width;
+        anim = GetComponent<Animator>(); //this is for animations
         rb = GetComponent<Rigidbody2D>();
-
     }
+
+    private void Move()
+    {
+        float inputX = Input.GetAxisRaw("Horizontal");
+
+        if (inputX == -1)
+        {
+            player.transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+
+        else if (inputX == 1)
+        {
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        float velocity = inputX * speed;
+        rb.velocity = new Vector2(velocity, rb.velocity.y);
+        
+        if (inputX == 0) //this is for animations
+        {
+            anim.SetBool("isRunning", false);
+        }
+        else
+        {
+            anim.SetBool("isRunning", true);
+        }
+    }
+
     // Update is called once per frame
 
     void Update()
     {
-        
         Move();
         Jump();
         CheckIfGrounded();
 
-        //animator.SetFloat("Speed", Mathf.Abs(Horizontal));
-
-    }
-
-
-    public void Move()
-
-    {
-        int i = 0;
-
-        while (i < Input.touchCount)
-        {
-            if ((Input.GetTouch(i).position.x > ScreenWidth / 2) && Input.touchCount < 2) 
-            {
-             
-                float velocity = 1 * speed;
-                rb.velocity = new Vector2(velocity, rb.velocity.y);
-            }
-
-            else if ((Input.GetTouch(i).position.x < ScreenWidth / 2) && Input.touchCount < 2) 
-            {
-                float velocity = -1 * speed;
-                rb.velocity = new Vector2(velocity, rb.velocity.y);
-            }
-
-            ++i;
-
-        }
-
-        if (Input.touchCount == 0)
-        {
-            
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
     }
 
     private void Jump()
@@ -79,11 +68,24 @@ public class PlayerMovement : MonoBehaviour
         //Must be reworked
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
+            
+            anim.SetTrigger("TakeOff"); //this is for animations
+
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //float inputY = Input.GetAxisRaw("Vertical");
             //float jump = inputY * jumpForce;
             //rb.velocity = new Vector2(rb.velocity.x, jump);
         }
+        
+        if (isGrounded == true) //this is for animations
+        {
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
+        }
+
     }
 
     void CheckIfGrounded()
