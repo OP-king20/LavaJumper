@@ -13,9 +13,13 @@ public class RestartSystem : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D restart)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(Application.loadedLevel);
+            Debug.Log("Restart");
+        }
     }
 
 
