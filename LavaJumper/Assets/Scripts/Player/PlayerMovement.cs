@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
 
+    public float dashCooldown;
     public float dashDistance = 10f;
     bool isDashing;
     float doubleTapTime;
@@ -158,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         isDashing = false;
         rb.gravityScale = 3;
+        
 
 
     }
