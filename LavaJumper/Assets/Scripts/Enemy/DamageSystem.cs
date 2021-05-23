@@ -2,43 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class DamageSystem : MonoBehaviour
 {
-   
-    public LayerMask enemyLayers;
+    public LayerMask PlayerLayers;
     public Transform AttackPoint;
 
     public float AttackRadius;
     public int damageAmount;
-
-    private Animator anim;
-
-    // Update is called once per frame
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            Attack();
-        }
-    }
-
+    
 
     void Attack()
     {
         //Play Attack Animation
-        anim.SetTrigger("Attack");
+        
 
         //Detect enemies in range of attack
         //Creates an array for the attack point
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRadius, enemyLayers);
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRadius, PlayerLayers);
         //Damage Enemies inside of radius
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D player in hitPlayer)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
+            player.GetComponent<PlayerHealth>().PlayerTakeDamage(damageAmount);
         }
     }
 
@@ -50,5 +34,11 @@ public class PlayerCombat : MonoBehaviour
         //    return;
         //}
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRadius);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Attack();
+        Debug.Log("Player takes damage");
     }
 }
