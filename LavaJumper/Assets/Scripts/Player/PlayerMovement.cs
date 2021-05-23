@@ -8,9 +8,13 @@ public class PlayerMovement : MonoBehaviour
     float speed = 5f;
     [SerializeField]
     float jumpForce = 5f;
+    [SerializeField]
+    float startDashTime;
 
     public Rigidbody2D rb;
+
     
+
     bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
@@ -18,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
 
+    public float dashDistance = 10f;
+    bool isDashing;
+    float doubleTapTime;
+    KeyCode lastKeyCode;
+    
     private Animator anim;
 
     // Start is called before the first frame update
@@ -25,6 +34,44 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>(); //this is for animations
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        
+        Move();
+        Jump();
+        CheckIfGrounded();
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+            {
+                StartCoroutine(Dash(-1f));
+            }
+
+            else
+            {
+                doubleTapTime = Time.time + 0.5f;
+            }
+
+            lastKeyCode = KeyCode.A;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            {
+                StartCoroutine(Dash(1f));
+            }
+
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.D;
+        }
+
     }
 
     private void Move()
@@ -40,9 +87,14 @@ public class PlayerMovement : MonoBehaviour
         {
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        float velocity = inputX * speed;
-        rb.velocity = new Vector2(velocity, rb.velocity.y);
+        ;
+        if (!isDashing)
+        {
+            float velocity = inputX * speed;
+            rb.velocity = new Vector2(velocity, rb.velocity.y);
+        }
         
+
         if (inputX == 0) //this is for animations
         {
             anim.SetBool("isRunning", false);
@@ -51,18 +103,13 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isRunning", true);
         }
+
     }
+   
 
     // Update is called once per frame
 
-    void Update()
-    {
-        Move();
-        Jump();
-        CheckIfGrounded();
-
-    }
-
+   
     private void Jump()
     {
         //Must be reworked
@@ -101,7 +148,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    IEnumerator Dash (float direction)
+    {
+        isDashing = true;
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+        
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(0.2f);
+        isDashing = false;
+        rb.gravityScale = 3;
 
+
+    }
 
 }
 

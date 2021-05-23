@@ -11,11 +11,19 @@ public class PlayerCombat : MonoBehaviour
     public float AttackRadius;
     public int damageAmount;
 
+    private Animator anim;
+
     // Update is called once per frame
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.F))
         {
+            anim.SetTrigger("Attack");
+
             Attack();
         }
     }
