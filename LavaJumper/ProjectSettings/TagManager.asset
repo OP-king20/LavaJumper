@@ -16,7 +16,7 @@ TagManager:
   - 
   - Character
   - Ground
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -61,14 +61,17 @@ TagManager:
   - name: Foliage3
     uniqueID: 215040217
     locked: 0
-  - name: Character
-    uniqueID: 3496193153
+  - name: Enemies
+    uniqueID: 3251875023
     locked: 0
   - name: Platform
     uniqueID: 2533621239
     locked: 0
   - name: Lamps
     uniqueID: 2054993127
+    locked: 0
+  - name: Character
+    uniqueID: 3496193153
     locked: 0
   - name: Water
     uniqueID: 632688709
