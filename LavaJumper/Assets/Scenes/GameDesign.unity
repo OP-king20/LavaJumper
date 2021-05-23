@@ -8568,7 +8568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61db3f6304e58c4fbc307b957b96cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
 --- !u!61 &1216865766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19452,8 +19452,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   AttackPoint: {fileID: 474327832}
-  AttackRadius: 1
-  damageAmount: 35
+  AttackRadius: 0.9
+  damageAmount: 50
 --- !u!1 &1715254771
 GameObject:
   m_ObjectHideFlags: 0

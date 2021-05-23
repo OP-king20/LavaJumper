@@ -20,9 +20,10 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.F))
         {
             anim.SetTrigger("Attack");
+
             Attack();
         }
     }
