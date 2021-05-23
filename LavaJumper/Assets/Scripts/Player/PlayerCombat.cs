@@ -31,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play Attack Animation
         anim.SetTrigger("Attack");
+
         //Detect enemies in range of attack
         //Creates an array for the attack point
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRadius, enemyLayers);
@@ -39,9 +40,6 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
         }
-
-
-
     }
 
 

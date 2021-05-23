@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 500;
     int currentHealth;
-
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        
     }
 
-    public void TakeDamage(int damage)
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void PlayerTakeDamage(int damage)
     {
         currentHealth -= damage;
 
         //Play Damage Animation
 
         //Checks if enemy shall die
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -29,8 +35,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //Die animation
-        Debug.Log("Enemy died");
+        Debug.Log("Player died");
         //Disable the enemy
-        Destroy(gameObject);
     }
 }
