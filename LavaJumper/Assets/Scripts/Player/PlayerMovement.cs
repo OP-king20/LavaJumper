@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     private float dashTime;
+    private int jumpCount;
 
     bool isGrounded = false;
     public Transform isGroundedChecker;
@@ -90,20 +91,26 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         //Must be reworked
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.W) && (isGrounded || jumpCount < 1))
         {
-            
+
             anim.SetTrigger("TakeOff"); //this is for animations
 
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            ++jumpCount;
             //float inputY = Input.GetAxisRaw("Vertical");
             //float jump = inputY * jumpForce;
             //rb.velocity = new Vector2(rb.velocity.x, jump);
+
         }
-        
+
+       
+
+
         if (isGrounded == true) //this is for animations
         {
             anim.SetBool("isJumping", false);
+            jumpCount = 0;
         }
         else
         {
