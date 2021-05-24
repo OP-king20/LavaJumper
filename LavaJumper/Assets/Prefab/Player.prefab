@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5140743510800025250}
   - component: {fileID: 5140743510800025249}
   - component: {fileID: 5140743510800025181}
+  - component: {fileID: 135232852678047438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -186,3 +187,21 @@ MonoBehaviour:
     m_Bits: 256
   player: {fileID: 0}
   dashDistance: 10
+--- !u!114 &135232852678047438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140743510800025248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f670d209839e7e14898d454e90d05b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  AttackPoint: {fileID: 0}
+  AttackRadius: 0.9
+  damageAmount: 50
