@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class DoubleTap : MonoBehaviour
 {
     [SerializeField]
     float speed = 5f;
     [SerializeField]
     float jumpForce = 5f;
-    
-    
+
+
     [SerializeField]
     float dashCooldown;
     [SerializeField]
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTime;
     private int jumpCount;
 
-    private int direction;
+    private string facing;
 
 
     bool isGrounded = false;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     bool isDashing;
     float doubleTapTime;
     KeyCode lastKeyCode;
-    
+
     private Animator anim;
 
     // Start is called before the first frame update
@@ -46,12 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         Move();
         Jump();
         CheckIfGrounded();
         Dashes();
-        
+
 
     }
 
@@ -62,20 +62,20 @@ public class PlayerMovement : MonoBehaviour
         if (inputX == -1)
         {
             player.transform.rotation = Quaternion.Euler(0, -180, 0);
-            direction = -1;
+
         }
 
         else if (inputX == 1)
         {
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
-            direction = 1;
+
         }
         if (!isDashing)
         {
             float velocity = inputX * speed;
             rb.velocity = new Vector2(velocity, rb.velocity.y);
         }
-        
+
 
         if (inputX == 0) //this is for animations
         {
@@ -87,11 +87,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-   
+
 
     // Update is called once per frame
 
-   
+
     private void Jump()
     {
         //Must be reworked
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         if (collider != null)
         {
             isGrounded = true;
-           
+
         }
         else
         {
@@ -135,14 +135,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator Dash (float direction)
+    IEnumerator Dash(float direction)
     {
-      
+
         isDashing = true;
-        
+
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
-        
+
         rb.gravityScale = 0;
         yield return new WaitForSeconds(0.2f);
         isDashing = false;
@@ -153,15 +153,37 @@ public class PlayerMovement : MonoBehaviour
 
     void Dashes()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > dashTime)
+        if (Input.GetKeyDown(KeyCode.A) && Time.time > dashTime)
         {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+            {
+                dashTime = Time.time + dashCooldown;
+                StartCoroutine(Dash(-1));
+            }
 
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
 
-            dashTime = Time.time + dashCooldown;
-            StartCoroutine(Dash(direction));
+            lastKeyCode = KeyCode.A;
         }
+        if (Input.GetKeyDown(KeyCode.D) && Time.time > dashTime)
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            {
+                dashTime = Time.time + dashCooldown;
+                StartCoroutine(Dash(1f));
+            }
 
-    }   
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.D;
+        }
+    }
 
 }
 
