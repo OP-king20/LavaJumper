@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
 
+    public float dashCooldown;
     public float dashDistance = 10f;
     bool isDashing;
     float doubleTapTime;
@@ -42,35 +43,8 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         CheckIfGrounded();
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
-            {
-                StartCoroutine(Dash(-1f));
-            }
-
-            else
-            {
-                doubleTapTime = Time.time + 0.5f;
-            }
-
-            lastKeyCode = KeyCode.A;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
-            {
-                StartCoroutine(Dash(1f));
-            }
-
-            else
-            {
-                doubleTapTime = Time.time + 0.2f;
-            }
-
-            lastKeyCode = KeyCode.D;
-        }
+        Dashes();
+      
 
     }
 
@@ -158,9 +132,41 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         isDashing = false;
         rb.gravityScale = 3;
+        
 
 
     }
+    void Dashes()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+            {
+                StartCoroutine(Dash(-1f));
+            }
 
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.A;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            {
+                StartCoroutine(Dash(1f));
+            }
+
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.D;
+        }
+
+    }
 }
 
