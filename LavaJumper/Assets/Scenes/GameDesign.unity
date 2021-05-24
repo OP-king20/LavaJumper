@@ -7049,6 +7049,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7163276016844353528, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163276016844353528, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1816587081
+      objectReference: {fileID: 0}
     - target: {fileID: 7163276016844353532, guid: 2f63ede2b90372d40b8b633200d5baeb, type: 3}
       propertyPath: m_Name
       value: CavePlatform (2)
@@ -19126,6 +19134,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
+      propertyPath: dashCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
