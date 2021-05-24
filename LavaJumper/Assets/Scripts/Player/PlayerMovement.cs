@@ -43,35 +43,8 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         CheckIfGrounded();
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
-            {
-                StartCoroutine(Dash(-1f));
-            }
-
-            else
-            {
-                doubleTapTime = Time.time + 0.5f;
-            }
-
-            lastKeyCode = KeyCode.A;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
-            {
-                StartCoroutine(Dash(1f));
-            }
-
-            else
-            {
-                doubleTapTime = Time.time + 0.2f;
-            }
-
-            lastKeyCode = KeyCode.D;
-        }
+        Dashes();
+      
 
     }
 
@@ -163,6 +136,37 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+    void Dashes()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+            {
+                StartCoroutine(Dash(-1f));
+            }
 
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.A;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            {
+                StartCoroutine(Dash(1f));
+            }
+
+            else
+            {
+                doubleTapTime = Time.time + 0.2f;
+            }
+
+            lastKeyCode = KeyCode.D;
+        }
+
+    }
 }
 
