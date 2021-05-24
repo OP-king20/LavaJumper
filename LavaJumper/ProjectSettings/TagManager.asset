@@ -52,14 +52,14 @@ TagManager:
   - name: Background2
     uniqueID: 1543897335
     locked: 0
+  - name: Ground
+    uniqueID: 1816587081
+    locked: 0
   - name: Foliage1
     uniqueID: 733166803
     locked: 0
   - name: Foliage2
     uniqueID: 2761027505
-    locked: 0
-  - name: Foliage3
-    uniqueID: 215040217
     locked: 0
   - name: Enemies
     uniqueID: 3251875023
@@ -72,6 +72,9 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 3496193153
+    locked: 0
+  - name: Foliage3
+    uniqueID: 215040217
     locked: 0
   - name: Water
     uniqueID: 632688709
