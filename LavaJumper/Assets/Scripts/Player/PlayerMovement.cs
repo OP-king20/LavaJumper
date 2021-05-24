@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTime;
     private int jumpCount;
 
-    private int direction;aaaaa
+    private int direction;
 
 
     bool isGrounded = false;
