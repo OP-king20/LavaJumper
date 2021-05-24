@@ -8,14 +8,16 @@ public class PlayerMovement : MonoBehaviour
     float speed = 5f;
     [SerializeField]
     float jumpForce = 5f;
+    
+    
     [SerializeField]
-    float startDashTime;
+    float dashCooldown;
     [SerializeField]
     float gravity;
 
     public Rigidbody2D rb;
 
-    
+    private float dashTime;
 
     bool isGrounded = false;
     public Transform isGroundedChecker;
@@ -116,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         if (collider != null)
         {
             isGrounded = true;
+           
         }
         else
         {
@@ -125,7 +128,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash (float direction)
     {
+      
         isDashing = true;
+        
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         
@@ -139,10 +144,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Dashes()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && Time.time > dashTime)
         {
             if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
             {
+                dashTime = Time.time + dashCooldown;
                 StartCoroutine(Dash(-1f));
             }
 
@@ -153,10 +159,11 @@ public class PlayerMovement : MonoBehaviour
 
             lastKeyCode = KeyCode.A;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && Time.time > dashTime)
         {
             if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
             {
+                dashTime = Time.time + dashCooldown;
                 StartCoroutine(Dash(1f));
             }
 
