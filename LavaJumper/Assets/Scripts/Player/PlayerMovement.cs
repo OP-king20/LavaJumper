@@ -4,48 +4,43 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 5f;
-    [SerializeField]
-    float jumpForce = 5f;
-    
-    
-    [SerializeField]
-    float dashCooldown;
-    
-    
 
+
+
+    [SerializeField]
+    float speed = 5f, jumpForce = 5f, dashCooldown, dashDistance = 10f;
+  
     public Rigidbody2D rb;
-
-    private float dashTime;
-    private int jumpCount;
-    
-    //Player needs to be facing right when instantiated
-    //-1 = left and 1 = right
-    private int direction = 1;
-
-    float gravity;
-
     bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
-
     public GameObject player;
+    
+    //Player needs to be facing right when instantiated
+    //-1 = left and 1 = right
+    private float direction = 1;
+    private float dashTime;
+    private int jumpCount;
+    private float gravity;
 
-    public float dashDistance = 10f;
     bool isDashing;
-    float doubleTapTime;
-    KeyCode lastKeyCode;
+    
+    
     
     private Animator anim;
+    
+    //Constants
+    private float constantGravityTimer = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
+
         anim = GetComponent<Animator>(); //this is for animations
         rb = GetComponent<Rigidbody2D>();
         gravity = rb.gravityScale;
+        
     }
 
     void Update()
@@ -55,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         CheckIfGrounded();
         Dashes();
-        
 
     }
 
@@ -148,10 +142,10 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         
         rb.gravityScale = 0;
-        yield return new WaitForSeconds(0.2f);
+        //Gravity timer decides för how long player will float;
+        yield return new WaitForSeconds(constantGravityTimer);
         isDashing = false;
         rb.gravityScale = gravity;
-
 
     }
 
@@ -159,8 +153,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > dashTime)
         {
-
-
             dashTime = Time.time + dashCooldown;
             StartCoroutine(Dash(direction));
         }
