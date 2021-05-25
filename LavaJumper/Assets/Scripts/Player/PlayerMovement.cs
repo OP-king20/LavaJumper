@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField]
     float dashCooldown;
-    [SerializeField]
-    float gravity;
+    
+    
 
     public Rigidbody2D rb;
 
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     //-1 = left and 1 = right
     private int direction = 1;
 
+    float gravity;
 
     bool isGrounded = false;
     public Transform isGroundedChecker;
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>(); //this is for animations
         rb = GetComponent<Rigidbody2D>();
+        gravity = rb.gravityScale;
     }
 
     void Update()
@@ -141,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     {
       
         isDashing = true;
-        
+        rb.velocity = new Vector2(0, rb.velocity.y);
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         
