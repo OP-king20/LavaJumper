@@ -16624,7 +16624,7 @@ PrefabInstance:
       objectReference: {fileID: 1657903351}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: gravity
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: animator
@@ -16632,7 +16632,7 @@ PrefabInstance:
       objectReference: {fileID: 1657903352}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: jumpForce
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: m_Enabled
@@ -16644,7 +16644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: dashDistance
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025181, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: startDashTime
@@ -16664,7 +16664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025249, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: m_GravityScale
-      value: 1.3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5140743510800025250, guid: 7ee9e45cfdd46634cbaa7634a08aee60, type: 3}
       propertyPath: m_Size.x

@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float dashTime;
     private int jumpCount;
-
-    private int direction;
+    
+    //Player needs to be facing right when instantiated
+    //-1 = left and 1 = right
+    private int direction = 1;
 
 
     bool isGrounded = false;
