@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float dashTime;
     private int jumpCount;
+
+    private float lastImageXpos;
     
     //Player needs to be facing right when instantiated
     //-1 = left and 1 = right
@@ -37,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
     bool isDashing;
     float doubleTapTime;
     KeyCode lastKeyCode;
-    
+
     private Animator anim;
+    public float distanceBetweenImages;
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +155,11 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         rb.gravityScale = gravity;
 
+        if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+        {
+            GhostPool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+        }
 
     }
 
@@ -159,10 +167,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > dashTime)
         {
-
+            //this is for animations 
+            anim.SetTrigger("DashSide");
 
             dashTime = Time.time + dashCooldown;
             StartCoroutine(Dash(direction));
+        }
+
+        if (isGrounded == true) //this is for animations
+        {
+            anim.SetBool("isDashingSide", false);
+            jumpCount = 0;
         }
 
     }   

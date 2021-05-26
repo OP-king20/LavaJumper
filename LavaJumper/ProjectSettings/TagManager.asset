@@ -73,6 +73,9 @@ TagManager:
   - name: Character
     uniqueID: 3496193153
     locked: 0
+  - name: Player
+    uniqueID: 361549437
+    locked: 0
   - name: Foliage3
     uniqueID: 215040217
     locked: 0

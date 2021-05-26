@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5140743510800025249}
   - component: {fileID: 5140743510800025181}
   - component: {fileID: 135232852678047438}
+  - component: {fileID: -8230341963040564783}
   m_Layer: 0
   m_Name: Player_original_prefab
   m_TagString: Untagged
@@ -179,7 +180,6 @@ MonoBehaviour:
   speed: 9
   jumpForce: 12
   dashCooldown: 0
-  gravity: 0
   rb: {fileID: 5140743510800025249}
   isGroundedChecker: {fileID: 5140743509947884421}
   checkGroundRadius: 0.05
@@ -206,3 +206,17 @@ MonoBehaviour:
   AttackPoint: {fileID: 0}
   AttackRadius: 0.9
   damageAmount: 50
+--- !u!114 &-8230341963040564783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140743510800025248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6615d87c8d6fe404aadf09cdf45c1bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0
+  ghost: {fileID: 0}
