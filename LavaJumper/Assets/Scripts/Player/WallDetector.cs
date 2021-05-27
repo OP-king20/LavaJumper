@@ -9,6 +9,7 @@ public class WallDetector : MonoBehaviour
     public bool onWall;
     public bool onRightWall;
     public bool onLeftWall;
+
     public float collisionRadius;
     public Vector2 groundOffset;
     public Vector2 rightOffset;
