@@ -26,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool isDashing;
     
-    
-    
     private Animator anim;
     
     //Constants
@@ -116,7 +114,15 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
-
+        
+        if (rb.velocity.y <0)
+        {
+            anim.SetTrigger("Fall");
+        }
+        else
+        {
+            anim.SetBool("isFalling", false);
+        }
     }
 
     void CheckIfGrounded()
@@ -153,11 +159,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > dashTime)
         {
+            anim.SetTrigger("DashSide");
             dashTime = Time.time + dashCooldown;
             StartCoroutine(Dash(direction));
         }
+        else
+        {
+            anim.SetBool("isDashingSide", false);
+        }
 
-    }   
-
+    }
 }
 

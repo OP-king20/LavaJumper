@@ -180,6 +180,7 @@ MonoBehaviour:
   speed: 9
   jumpForce: 12
   dashCooldown: 0
+  dashDistance: 10
   rb: {fileID: 5140743510800025249}
   isGroundedChecker: {fileID: 5140743509947884421}
   checkGroundRadius: 0.05
@@ -187,7 +188,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 0}
-  dashDistance: 10
 --- !u!114 &135232852678047438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,5 +218,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6615d87c8d6fe404aadf09cdf45c1bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostDelay: 0
-  ghost: {fileID: 0}
+  activeTime: 0.1
+  alphaSet: 0.8
