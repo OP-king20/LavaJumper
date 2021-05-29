@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
         }
         
-        if (rb.velocity.y <0)
+        if (rb.velocity.y <-0)
         {
             anim.SetTrigger("Fall");
         }
